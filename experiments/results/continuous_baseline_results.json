@@ -1,0 +1,177 @@
+{
+  "teacher": {
+    "name": "Mamba-130m teacher",
+    "ppl": 22.9
+  },
+  "continuous_240d4L_5k": {
+    "name": "Continuous 240d/4L 13.61M (5K)",
+    "final_ppl": 87.2,
+    "best_ppl": 87.2,
+    "history": [
+      {
+        "step": 500,
+        "ppl": 272.7,
+        "best": 272.7
+      },
+      {
+        "step": 1000,
+        "ppl": 174.2,
+        "best": 174.2
+      },
+      {
+        "step": 1500,
+        "ppl": 155.1,
+        "best": 155.1
+      },
+      {
+        "step": 2000,
+        "ppl": 110.3,
+        "best": 110.3
+      },
+      {
+        "step": 2500,
+        "ppl": 105.8,
+        "best": 105.8
+      },
+      {
+        "step": 3000,
+        "ppl": 101.0,
+        "best": 101.0
+      },
+      {
+        "step": 3500,
+        "ppl": 94.8,
+        "best": 94.8
+      },
+      {
+        "step": 4000,
+        "ppl": 88.5,
+        "best": 88.5
+      },
+      {
+        "step": 4500,
+        "ppl": 88.5,
+        "best": 88.5
+      },
+      {
+        "step": 5000,
+        "ppl": 87.2,
+        "best": 87.2
+      }
+    ]
+  },
+  "continuous_224d6L_5k": {
+    "name": "Continuous 224d/6L 13.29M (5K)",
+    "final_ppl": 7776.2,
+    "best_ppl": 274.3,
+    "history": [
+      {
+        "step": 500,
+        "ppl": 394.6,
+        "best": 394.6
+      },
+      {
+        "step": 1000,
+        "ppl": 274.3,
+        "best": 274.3
+      },
+      {
+        "step": 1500,
+        "ppl": 45482.6,
+        "best": 274.3
+      },
+      {
+        "step": 2000,
+        "ppl": 19894.9,
+        "best": 274.3
+      },
+      {
+        "step": 2500,
+        "ppl": 15140.3,
+        "best": 274.3
+      },
+      {
+        "step": 3000,
+        "ppl": 6289.5,
+        "best": 274.3
+      },
+      {
+        "step": 3500,
+        "ppl": 8924.1,
+        "best": 274.3
+      },
+      {
+        "step": 4000,
+        "ppl": 7934.6,
+        "best": 274.3
+      },
+      {
+        "step": 4500,
+        "ppl": 7553.9,
+        "best": 274.3
+      },
+      {
+        "step": 5000,
+        "ppl": 7776.2,
+        "best": 274.3
+      }
+    ]
+  },
+  "spiking_128d6L_5k": {
+    "name": "Spiking LeakyTernary 128d/6L (5K)",
+    "final_ppl": 94.8,
+    "best_ppl": 94.8,
+    "history": [
+      {
+        "step": 500,
+        "ppl": 281.1,
+        "best": 281.1
+      },
+      {
+        "step": 1000,
+        "ppl": 173.9,
+        "best": 173.9
+      },
+      {
+        "step": 1500,
+        "ppl": 140.6,
+        "best": 140.6
+      },
+      {
+        "step": 2000,
+        "ppl": 128.0,
+        "best": 128.0
+      },
+      {
+        "step": 2500,
+        "ppl": 107.1,
+        "best": 107.1
+      },
+      {
+        "step": 3000,
+        "ppl": 110.4,
+        "best": 107.1
+      },
+      {
+        "step": 3500,
+        "ppl": 103.9,
+        "best": 103.9
+      },
+      {
+        "step": 4000,
+        "ppl": 98.0,
+        "best": 98.0
+      },
+      {
+        "step": 4500,
+        "ppl": 97.0,
+        "best": 97.0
+      },
+      {
+        "step": 5000,
+        "ppl": 94.8,
+        "best": 94.8
+      }
+    ]
+  }
+}

@@ -1,0 +1,342 @@
+{
+  "1_baseline_sltt": {
+    "name": "SpikingSSM baseline (SLTT binary LIF)",
+    "final_ppl": 102.3,
+    "best_ppl": 102.3,
+    "final_fire_rate": 0.2602,
+    "final_sparsity": 0.7398,
+    "final_alphas": [],
+    "n_params": 13038592,
+    "history": [
+      {
+        "step": 500,
+        "ppl": 194.0,
+        "fire_rate": 0.1591,
+        "alphas": []
+      },
+      {
+        "step": 1000,
+        "ppl": 147.8,
+        "fire_rate": 0.1932,
+        "alphas": []
+      },
+      {
+        "step": 1500,
+        "ppl": 120.9,
+        "fire_rate": 0.2155,
+        "alphas": []
+      },
+      {
+        "step": 2000,
+        "ppl": 114.5,
+        "fire_rate": 0.2405,
+        "alphas": []
+      },
+      {
+        "step": 2500,
+        "ppl": 103.6,
+        "fire_rate": 0.2549,
+        "alphas": []
+      },
+      {
+        "step": 3000,
+        "ppl": 102.3,
+        "fire_rate": 0.2602,
+        "alphas": []
+      }
+    ]
+  },
+  "2_ternary_lif": {
+    "name": "+ Ternary LIF",
+    "final_ppl": 94.7,
+    "best_ppl": 94.7,
+    "final_fire_rate": 0.3675,
+    "final_sparsity": 0.6325,
+    "final_alphas": [],
+    "n_params": 13038592,
+    "history": [
+      {
+        "step": 500,
+        "ppl": 176.0,
+        "fire_rate": 0.2982,
+        "alphas": []
+      },
+      {
+        "step": 1000,
+        "ppl": 144.3,
+        "fire_rate": 0.3233,
+        "alphas": []
+      },
+      {
+        "step": 1500,
+        "ppl": 114.7,
+        "fire_rate": 0.3385,
+        "alphas": []
+      },
+      {
+        "step": 2000,
+        "ppl": 107.7,
+        "fire_rate": 0.3503,
+        "alphas": []
+      },
+      {
+        "step": 2500,
+        "ppl": 96.1,
+        "fire_rate": 0.3644,
+        "alphas": []
+      },
+      {
+        "step": 3000,
+        "ppl": 94.7,
+        "fire_rate": 0.3675,
+        "alphas": []
+      }
+    ]
+  },
+  "3_leaky_ternary": {
+    "name": "+ LeakyTernaryLIF (learned alpha)",
+    "final_ppl": 87.8,
+    "best_ppl": 87.8,
+    "final_fire_rate": 0.0383,
+    "final_sparsity": 0.9617,
+    "final_alphas": [
+      0.053,
+      0.037,
+      0.052,
+      0.068
+    ],
+    "n_params": 13038596,
+    "history": [
+      {
+        "step": 500,
+        "ppl": 153.0,
+        "fire_rate": 0.0907,
+        "alphas": [
+          0.271,
+          0.255,
+          0.373,
+          0.34
+        ]
+      },
+      {
+        "step": 1000,
+        "ppl": 120.4,
+        "fire_rate": 0.0498,
+        "alphas": [
+          0.106,
+          0.09,
+          0.128,
+          0.139
+        ]
+      },
+      {
+        "step": 1500,
+        "ppl": 105.4,
+        "fire_rate": 0.0409,
+        "alphas": [
+          0.072,
+          0.055,
+          0.079,
+          0.094
+        ]
+      },
+      {
+        "step": 2000,
+        "ppl": 95.6,
+        "fire_rate": 0.0384,
+        "alphas": [
+          0.061,
+          0.044,
+          0.06,
+          0.076
+        ]
+      },
+      {
+        "step": 2500,
+        "ppl": 89.8,
+        "fire_rate": 0.0376,
+        "alphas": [
+          0.054,
+          0.038,
+          0.053,
+          0.069
+        ]
+      },
+      {
+        "step": 3000,
+        "ppl": 87.8,
+        "fire_rate": 0.0383,
+        "alphas": [
+          0.053,
+          0.037,
+          0.052,
+          0.068
+        ]
+      }
+    ]
+  },
+  "4_topk_30": {
+    "name": "+ Top-K 30% sparsity",
+    "final_ppl": 91.8,
+    "best_ppl": 91.8,
+    "final_fire_rate": 0.0239,
+    "final_sparsity": 0.9761,
+    "final_alphas": [
+      0.056,
+      0.04,
+      0.038,
+      0.071
+    ],
+    "n_params": 13038596,
+    "history": [
+      {
+        "step": 500,
+        "ppl": 197.3,
+        "fire_rate": 0.0549,
+        "alphas": [
+          0.227,
+          0.211,
+          0.26,
+          0.388
+        ]
+      },
+      {
+        "step": 1000,
+        "ppl": 132.9,
+        "fire_rate": 0.0301,
+        "alphas": [
+          0.101,
+          0.082,
+          0.091,
+          0.156
+        ]
+      },
+      {
+        "step": 1500,
+        "ppl": 110.8,
+        "fire_rate": 0.024,
+        "alphas": [
+          0.073,
+          0.056,
+          0.057,
+          0.103
+        ]
+      },
+      {
+        "step": 2000,
+        "ppl": 96.8,
+        "fire_rate": 0.0243,
+        "alphas": [
+          0.062,
+          0.046,
+          0.044,
+          0.08
+        ]
+      },
+      {
+        "step": 2500,
+        "ppl": 93.2,
+        "fire_rate": 0.0237,
+        "alphas": [
+          0.057,
+          0.041,
+          0.039,
+          0.073
+        ]
+      },
+      {
+        "step": 3000,
+        "ppl": 91.8,
+        "fire_rate": 0.0239,
+        "alphas": [
+          0.056,
+          0.04,
+          0.038,
+          0.071
+        ]
+      }
+    ]
+  },
+  "5_topk_twn": {
+    "name": "+ TWN ternary weights (full stack)",
+    "final_ppl": 93.1,
+    "best_ppl": 93.0,
+    "final_fire_rate": 0.0272,
+    "final_sparsity": 0.9728,
+    "final_alphas": [
+      0.063,
+      0.051,
+      0.04,
+      0.046
+    ],
+    "n_params": 13038596,
+    "history": [
+      {
+        "step": 500,
+        "ppl": 176.0,
+        "fire_rate": 0.05,
+        "alphas": [
+          0.261,
+          0.262,
+          0.239,
+          0.307
+        ]
+      },
+      {
+        "step": 1000,
+        "ppl": 117.5,
+        "fire_rate": 0.034,
+        "alphas": [
+          0.127,
+          0.109,
+          0.086,
+          0.109
+        ]
+      },
+      {
+        "step": 1500,
+        "ppl": 116.3,
+        "fire_rate": 0.029,
+        "alphas": [
+          0.087,
+          0.072,
+          0.058,
+          0.07
+        ]
+      },
+      {
+        "step": 2000,
+        "ppl": 105.8,
+        "fire_rate": 0.0268,
+        "alphas": [
+          0.071,
+          0.057,
+          0.047,
+          0.055
+        ]
+      },
+      {
+        "step": 2500,
+        "ppl": 93.0,
+        "fire_rate": 0.0276,
+        "alphas": [
+          0.064,
+          0.052,
+          0.041,
+          0.047
+        ]
+      },
+      {
+        "step": 3000,
+        "ppl": 93.1,
+        "fire_rate": 0.0272,
+        "alphas": [
+          0.063,
+          0.051,
+          0.04,
+          0.046
+        ]
+      }
+    ]
+  }
+}

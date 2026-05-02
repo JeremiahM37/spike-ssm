@@ -1,0 +1,384 @@
+{
+  "1_baseline_binary": {
+    "name": "Mamba + binary LIF (baseline)",
+    "final_ppl": 195.1,
+    "best_ppl": 189.1,
+    "final_fire_rate": 0.5027,
+    "final_sparsity": 0.4973,
+    "final_alphas": [],
+    "n_params": 13551110,
+    "history": [
+      {
+        "step": 500,
+        "ppl": 293.3,
+        "fire_rate": 0.5092,
+        "alphas": []
+      },
+      {
+        "step": 1000,
+        "ppl": 231.4,
+        "fire_rate": 0.5045,
+        "alphas": []
+      },
+      {
+        "step": 1500,
+        "ppl": 227.9,
+        "fire_rate": 0.5032,
+        "alphas": []
+      },
+      {
+        "step": 2000,
+        "ppl": 189.1,
+        "fire_rate": 0.5039,
+        "alphas": []
+      },
+      {
+        "step": 2500,
+        "ppl": 196.8,
+        "fire_rate": 0.5038,
+        "alphas": []
+      },
+      {
+        "step": 3000,
+        "ppl": 195.1,
+        "fire_rate": 0.5027,
+        "alphas": []
+      }
+    ]
+  },
+  "2_ternary_lif": {
+    "name": "Mamba + ternary LIF",
+    "final_ppl": 192.2,
+    "best_ppl": 190.9,
+    "final_fire_rate": 1.0,
+    "final_sparsity": 0.0,
+    "final_alphas": [],
+    "n_params": 13551110,
+    "history": [
+      {
+        "step": 500,
+        "ppl": 296.5,
+        "fire_rate": 1.0,
+        "alphas": []
+      },
+      {
+        "step": 1000,
+        "ppl": 236.5,
+        "fire_rate": 1.0,
+        "alphas": []
+      },
+      {
+        "step": 1500,
+        "ppl": 214.7,
+        "fire_rate": 1.0,
+        "alphas": []
+      },
+      {
+        "step": 2000,
+        "ppl": 190.9,
+        "fire_rate": 1.0,
+        "alphas": []
+      },
+      {
+        "step": 2500,
+        "ppl": 194.4,
+        "fire_rate": 1.0,
+        "alphas": []
+      },
+      {
+        "step": 3000,
+        "ppl": 192.2,
+        "fire_rate": 1.0,
+        "alphas": []
+      }
+    ]
+  },
+  "3_leaky_ternary": {
+    "name": "Mamba + LeakyTernaryLIF",
+    "final_ppl": 110.3,
+    "best_ppl": 110.3,
+    "final_fire_rate": 0.9946,
+    "final_sparsity": 0.0054,
+    "final_alphas": [
+      0.879,
+      0.91,
+      0.887,
+      0.908,
+      0.894,
+      0.908
+    ],
+    "n_params": 13551116,
+    "history": [
+      {
+        "step": 500,
+        "ppl": 215.9,
+        "fire_rate": 0.9992,
+        "alphas": [
+          0.921,
+          0.937,
+          0.925,
+          0.942,
+          0.943,
+          0.943
+        ]
+      },
+      {
+        "step": 1000,
+        "ppl": 167.0,
+        "fire_rate": 0.9979,
+        "alphas": [
+          0.904,
+          0.925,
+          0.908,
+          0.928,
+          0.931,
+          0.929
+        ]
+      },
+      {
+        "step": 1500,
+        "ppl": 141.1,
+        "fire_rate": 0.996,
+        "alphas": [
+          0.89,
+          0.916,
+          0.896,
+          0.917,
+          0.92,
+          0.918
+        ]
+      },
+      {
+        "step": 2000,
+        "ppl": 130.9,
+        "fire_rate": 0.9952,
+        "alphas": [
+          0.882,
+          0.912,
+          0.89,
+          0.911,
+          0.907,
+          0.912
+        ]
+      },
+      {
+        "step": 2500,
+        "ppl": 115.2,
+        "fire_rate": 0.9947,
+        "alphas": [
+          0.879,
+          0.91,
+          0.888,
+          0.909,
+          0.896,
+          0.909
+        ]
+      },
+      {
+        "step": 3000,
+        "ppl": 110.3,
+        "fire_rate": 0.9946,
+        "alphas": [
+          0.879,
+          0.91,
+          0.887,
+          0.908,
+          0.894,
+          0.908
+        ]
+      }
+    ]
+  },
+  "4_topk_30": {
+    "name": "Mamba + LeakyTernary + Top-K 30%",
+    "final_ppl": 107.4,
+    "best_ppl": 107.4,
+    "final_fire_rate": 0.2969,
+    "final_sparsity": 0.7031,
+    "final_alphas": [
+      0.914,
+      0.878,
+      0.906,
+      0.903,
+      0.909,
+      0.895
+    ],
+    "n_params": 13551116,
+    "history": [
+      {
+        "step": 500,
+        "ppl": 212.5,
+        "fire_rate": 0.2969,
+        "alphas": [
+          0.947,
+          0.918,
+          0.941,
+          0.939,
+          0.944,
+          0.932
+        ]
+      },
+      {
+        "step": 1000,
+        "ppl": 171.7,
+        "fire_rate": 0.2969,
+        "alphas": [
+          0.934,
+          0.902,
+          0.927,
+          0.925,
+          0.93,
+          0.918
+        ]
+      },
+      {
+        "step": 1500,
+        "ppl": 138.4,
+        "fire_rate": 0.2969,
+        "alphas": [
+          0.924,
+          0.889,
+          0.916,
+          0.914,
+          0.919,
+          0.906
+        ]
+      },
+      {
+        "step": 2000,
+        "ppl": 120.2,
+        "fire_rate": 0.2969,
+        "alphas": [
+          0.918,
+          0.881,
+          0.909,
+          0.907,
+          0.913,
+          0.898
+        ]
+      },
+      {
+        "step": 2500,
+        "ppl": 108.6,
+        "fire_rate": 0.2969,
+        "alphas": [
+          0.915,
+          0.878,
+          0.906,
+          0.904,
+          0.91,
+          0.895
+        ]
+      },
+      {
+        "step": 3000,
+        "ppl": 107.4,
+        "fire_rate": 0.2969,
+        "alphas": [
+          0.914,
+          0.878,
+          0.906,
+          0.903,
+          0.909,
+          0.895
+        ]
+      }
+    ]
+  },
+  "5_topk_twn": {
+    "name": "Mamba + LeakyTernary + Top-K + TWN",
+    "final_ppl": 118.9,
+    "best_ppl": 118.9,
+    "final_fire_rate": 0.2969,
+    "final_sparsity": 0.7031,
+    "final_alphas": [
+      0.895,
+      0.92,
+      0.58,
+      0.899,
+      0.904,
+      0.898
+    ],
+    "n_params": 13551164,
+    "history": [
+      {
+        "step": 500,
+        "ppl": 259.4,
+        "fire_rate": 0.2969,
+        "alphas": [
+          0.933,
+          0.946,
+          0.869,
+          0.935,
+          0.938,
+          0.934
+        ]
+      },
+      {
+        "step": 1000,
+        "ppl": 191.0,
+        "fire_rate": 0.2969,
+        "alphas": [
+          0.91,
+          0.936,
+          0.793,
+          0.92,
+          0.924,
+          0.919
+        ]
+      },
+      {
+        "step": 1500,
+        "ppl": 165.8,
+        "fire_rate": 0.2969,
+        "alphas": [
+          0.9,
+          0.928,
+          0.63,
+          0.909,
+          0.913,
+          0.907
+        ]
+      },
+      {
+        "step": 2000,
+        "ppl": 138.0,
+        "fire_rate": 0.2969,
+        "alphas": [
+          0.895,
+          0.922,
+          0.587,
+          0.902,
+          0.906,
+          0.899
+        ]
+      },
+      {
+        "step": 2500,
+        "ppl": 133.8,
+        "fire_rate": 0.2969,
+        "alphas": [
+          0.895,
+          0.921,
+          0.579,
+          0.899,
+          0.904,
+          0.901
+        ]
+      },
+      {
+        "step": 3000,
+        "ppl": 118.9,
+        "fire_rate": 0.2969,
+        "alphas": [
+          0.895,
+          0.92,
+          0.58,
+          0.899,
+          0.904,
+          0.898
+        ]
+      }
+    ]
+  }
+}

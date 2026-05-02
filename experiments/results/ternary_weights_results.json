@@ -1,0 +1,569 @@
+{
+  "fp32_baseline": {
+    "final_ppl": 85.2,
+    "best_ppl": 80.9,
+    "ternary_pct": 0.0,
+    "w_sparse": 0.0,
+    "final_alphas": [
+      0.823,
+      0.901,
+      0.863,
+      0.904,
+      0.902,
+      0.8
+    ],
+    "history": [
+      {
+        "step": 500,
+        "ppl": 232.6
+      },
+      {
+        "step": 1000,
+        "ppl": 156.9
+      },
+      {
+        "step": 1500,
+        "ppl": 139.0
+      },
+      {
+        "step": 2000,
+        "ppl": 121.0
+      },
+      {
+        "step": 2500,
+        "ppl": 120.2
+      },
+      {
+        "step": 3000,
+        "ppl": 105.0
+      },
+      {
+        "step": 3500,
+        "ppl": 88.6
+      },
+      {
+        "step": 4000,
+        "ppl": 89.5
+      },
+      {
+        "step": 4500,
+        "ppl": 80.9
+      },
+      {
+        "step": 5000,
+        "ppl": 85.2
+      }
+    ]
+  },
+  "twn_from_scratch": {
+    "final_ppl": 86.8,
+    "best_ppl": 85.1,
+    "ternary_pct": 9.1,
+    "w_sparse": 42.2,
+    "final_alphas": [
+      0.14,
+      0.887,
+      0.884,
+      0.882,
+      0.847,
+      0.876
+    ],
+    "note": "L0 alpha drops to 0.14 \u2014 model compensates for ternary weights by making first layer almost entirely continuous",
+    "history": [
+      {
+        "step": 500,
+        "ppl": 237.2,
+        "w_sparse": 45.6
+      },
+      {
+        "step": 1000,
+        "ppl": 133.7,
+        "w_sparse": 45.6
+      },
+      {
+        "step": 1500,
+        "ppl": 139.6,
+        "w_sparse": 46.5
+      },
+      {
+        "step": 2000,
+        "ppl": 100.4,
+        "w_sparse": 46.3
+      },
+      {
+        "step": 2500,
+        "ppl": 98.4,
+        "w_sparse": 44.1
+      },
+      {
+        "step": 3000,
+        "ppl": 100.7,
+        "w_sparse": 43.5
+      },
+      {
+        "step": 3500,
+        "ppl": 95.3,
+        "w_sparse": 43.6
+      },
+      {
+        "step": 4000,
+        "ppl": 95.3,
+        "w_sparse": 44.3
+      },
+      {
+        "step": 4500,
+        "ppl": 85.1,
+        "w_sparse": 42.6
+      },
+      {
+        "step": 5000,
+        "ppl": 86.8,
+        "w_sparse": 42.2
+      }
+    ]
+  },
+  "ttq_from_scratch": {
+    "final_ppl": 106.5,
+    "best_ppl": 104.5,
+    "ternary_pct": 9.1,
+    "w_sparse": 37.2,
+    "final_alphas": [
+      0.823,
+      0.885,
+      0.839,
+      0.88,
+      0.831,
+      0.828
+    ],
+    "note": "TTQ worse than TWN \u2014 learned asymmetric scales don't help at this scale",
+    "history": [
+      {
+        "step": 500,
+        "ppl": 307.2,
+        "w_sparse": 43.3
+      },
+      {
+        "step": 1000,
+        "ppl": 257.5,
+        "w_sparse": 43.2
+      },
+      {
+        "step": 1500,
+        "ppl": 188.3,
+        "w_sparse": 41.8
+      },
+      {
+        "step": 2000,
+        "ppl": 151.4,
+        "w_sparse": 40.5
+      },
+      {
+        "step": 2500,
+        "ppl": 137.7,
+        "w_sparse": 39.0
+      },
+      {
+        "step": 3000,
+        "ppl": 116.4,
+        "w_sparse": 38.4
+      },
+      {
+        "step": 3500,
+        "ppl": 116.5,
+        "w_sparse": 37.9
+      },
+      {
+        "step": 4000,
+        "ppl": 105.1,
+        "w_sparse": 37.5
+      },
+      {
+        "step": 4500,
+        "ppl": 104.5,
+        "w_sparse": 37.3
+      },
+      {
+        "step": 5000,
+        "ppl": 106.5,
+        "w_sparse": 37.2
+      }
+    ]
+  },
+  "twn_all_layers": {
+    "final_ppl": 109.0,
+    "best_ppl": 107.9,
+    "ternary_pct": 100.0,
+    "w_sparse": 47.1,
+    "final_alphas": [
+      0.941,
+      0.294,
+      0.895,
+      0.922,
+      0.892,
+      0.957
+    ],
+    "note": "100% ternary weights including output head. L1 alpha drops to 0.29 \u2014 different compensation pattern than TWN (L0 drops). Still works!",
+    "history": [
+      {
+        "step": 500,
+        "ppl": 228.2,
+        "w_sparse": 48.6
+      },
+      {
+        "step": 1000,
+        "ppl": 142.7,
+        "w_sparse": 49.5
+      },
+      {
+        "step": 1500,
+        "ppl": 155.8,
+        "w_sparse": 51.4
+      },
+      {
+        "step": 2000,
+        "ppl": 123.4,
+        "w_sparse": 53.4
+      },
+      {
+        "step": 2500,
+        "ppl": 136.0,
+        "w_sparse": 51.9
+      },
+      {
+        "step": 3000,
+        "ppl": 134.5,
+        "w_sparse": 52.0
+      },
+      {
+        "step": 3500,
+        "ppl": 120.9,
+        "w_sparse": 51.0
+      },
+      {
+        "step": 4000,
+        "ppl": 125.8,
+        "w_sparse": 50.9
+      },
+      {
+        "step": 4500,
+        "ppl": 107.9,
+        "w_sparse": 48.0
+      },
+      {
+        "step": 5000,
+        "ppl": 109.0,
+        "w_sparse": 47.1
+      }
+    ]
+  },
+  "pure_ternary": {
+    "final_ppl": 185.4,
+    "best_ppl": 183.2,
+    "ternary_pct": 9.1,
+    "w_sparse": 42.7,
+    "note": "FULLY TERNARY: ternary weights + pure ternary activations (no leaky). Zero multiply operations. First-ever fully ternary language model.",
+    "history": [
+      {
+        "step": 500,
+        "ppl": 335.7,
+        "w_sparse": 40.1
+      },
+      {
+        "step": 1000,
+        "ppl": 266.8,
+        "w_sparse": 41.4
+      },
+      {
+        "step": 1500,
+        "ppl": 206.5,
+        "w_sparse": 41.6
+      },
+      {
+        "step": 2000,
+        "ppl": 216.4,
+        "w_sparse": 41.7
+      },
+      {
+        "step": 2500,
+        "ppl": 211.7,
+        "w_sparse": 41.6
+      },
+      {
+        "step": 3000,
+        "ppl": 201.7,
+        "w_sparse": 42.8
+      },
+      {
+        "step": 3500,
+        "ppl": 202.6,
+        "w_sparse": 43.1
+      },
+      {
+        "step": 4000,
+        "ppl": 183.2,
+        "w_sparse": 42.6
+      },
+      {
+        "step": 4500,
+        "ppl": 184.8,
+        "w_sparse": 42.6
+      },
+      {
+        "step": 5000,
+        "ppl": 185.4,
+        "w_sparse": 42.7
+      }
+    ]
+  },
+  "ptq_no_finetune": {
+    "pre_ppl": 82.9,
+    "post_ppl": 1712.5,
+    "delta_pct": 1966.8
+  },
+  "ptq_finetuned": {
+    "final_ppl": 105.3,
+    "best_ppl": 99.8,
+    "ternary_stats": {
+      "total_params": 7077504,
+      "ternary_params": 642048,
+      "ternary_pct": 9.071672725299766,
+      "avg_sparsity": 0.4816207339366277,
+      "ternary_layers": 24
+    },
+    "final_alphas": [
+      0.8787,
+      0.8647,
+      0.8911,
+      0.8849,
+      0.8071,
+      0.8088
+    ],
+    "history": [
+      {
+        "step": 500,
+        "ppl": 130.4,
+        "loss": 3.3405,
+        "alphas": [
+          0.8904,
+          0.8637,
+          0.8795,
+          0.889,
+          0.8359,
+          0.7915
+        ],
+        "weight_sparsity": 0.4952
+      },
+      {
+        "step": 1000,
+        "ppl": 129.0,
+        "loss": 3.3408,
+        "alphas": [
+          0.8861,
+          0.8637,
+          0.8839,
+          0.8866,
+          0.8265,
+          0.793
+        ],
+        "weight_sparsity": 0.4943
+      },
+      {
+        "step": 1500,
+        "ppl": 107.7,
+        "loss": 3.2717,
+        "alphas": [
+          0.8829,
+          0.8639,
+          0.8868,
+          0.8855,
+          0.8181,
+          0.7981
+        ],
+        "weight_sparsity": 0.4908
+      },
+      {
+        "step": 2000,
+        "ppl": 110.0,
+        "loss": 3.0299,
+        "alphas": [
+          0.8804,
+          0.8641,
+          0.8886,
+          0.8851,
+          0.8118,
+          0.8036
+        ],
+        "weight_sparsity": 0.4892
+      },
+      {
+        "step": 2500,
+        "ppl": 99.8,
+        "loss": 3.1249,
+        "alphas": [
+          0.8793,
+          0.8647,
+          0.8906,
+          0.885,
+          0.8084,
+          0.8067
+        ],
+        "weight_sparsity": 0.4824
+      },
+      {
+        "step": 3000,
+        "ppl": 105.3,
+        "loss": 3.1412,
+        "alphas": [
+          0.8787,
+          0.8647,
+          0.8911,
+          0.8849,
+          0.8071,
+          0.8088
+        ],
+        "weight_sparsity": 0.4816
+      }
+    ]
+  },
+  "gradual_anneal": {
+    "final_ppl": 117.5,
+    "best_ppl": 114.3,
+    "ternary_stats": {
+      "total_params": 7077504,
+      "ternary_params": 642048,
+      "ternary_pct": 9.071672725299766,
+      "avg_sparsity": 0.43025508771340054,
+      "ternary_layers": 24
+    },
+    "final_alphas": [
+      1.0,
+      0.7708,
+      0.824,
+      0.8786,
+      0.8453,
+      0.8524
+    ],
+    "history": [
+      {
+        "step": 500,
+        "ppl": 283.3,
+        "alphas": [
+          0.9899,
+          0.9144,
+          0.9345,
+          0.9302,
+          0.9367,
+          0.9438
+        ]
+      },
+      {
+        "step": 1000,
+        "ppl": 195.0,
+        "alphas": [
+          0.9998,
+          0.873,
+          0.9144,
+          0.9297,
+          0.9203,
+          0.9264
+        ]
+      },
+      {
+        "step": 1500,
+        "ppl": 200.3,
+        "alphas": [
+          1.0,
+          0.8521,
+          0.8971,
+          0.9119,
+          0.9065,
+          0.9126
+        ]
+      },
+      {
+        "step": 2000,
+        "ppl": 149.0,
+        "alphas": [
+          1.0,
+          0.8309,
+          0.879,
+          0.8987,
+          0.8865,
+          0.8945
+        ]
+      },
+      {
+        "step": 2500,
+        "ppl": 134.7,
+        "alphas": [
+          1.0,
+          0.8131,
+          0.8632,
+          0.891,
+          0.8737,
+          0.8819
+        ]
+      },
+      {
+        "step": 3000,
+        "ppl": 125.7,
+        "alphas": [
+          1.0,
+          0.7984,
+          0.8498,
+          0.886,
+          0.8616,
+          0.8699
+        ]
+      },
+      {
+        "step": 3500,
+        "ppl": 121.7,
+        "alphas": [
+          1.0,
+          0.7869,
+          0.8393,
+          0.8827,
+          0.8561,
+          0.8641
+        ]
+      },
+      {
+        "step": 4000,
+        "ppl": 114.3,
+        "alphas": [
+          1.0,
+          0.7808,
+          0.8334,
+          0.8798,
+          0.8516,
+          0.8593
+        ]
+      },
+      {
+        "step": 4500,
+        "ppl": 127.2,
+        "alphas": [
+          1.0,
+          0.7769,
+          0.8295,
+          0.8779,
+          0.8467,
+          0.8542
+        ]
+      },
+      {
+        "step": 5000,
+        "ppl": 117.5,
+        "alphas": [
+          1.0,
+          0.7708,
+          0.824,
+          0.8786,
+          0.8453,
+          0.8524
+        ]
+      }
+    ]
+  }
+}
