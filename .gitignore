@@ -27,3 +27,4 @@ archive/
 paper/
 nohup.out
 texput.log
+*.vcd
