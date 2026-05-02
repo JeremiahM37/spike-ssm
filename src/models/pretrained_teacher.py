@@ -23,7 +23,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
 
-from .spikegpt_wrapper import SpikeGPTOutput
+from .outputs import ModelOutput as SpikeGPTOutput
 
 
 # Default model and cache location

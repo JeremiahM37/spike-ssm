@@ -1,6 +1,8 @@
-# LeakyTernaryLIF: Learned Mixed-Precision Spiking for Neuromorphic Language Models
+# spike-ssm: Spiking State-Space Models with Learned Mixed Precision
 
-Three drop-in modifications for spiking state-space language models, evaluated on [SpikingSSMs](https://github.com/shenshuaijie/SDN) (S4D backbone, AAAI 2025) and a Mamba backbone.
+Experiments with learned spike/continuous mixing for spiking state-space language models, evaluated on [SpikingSSMs](https://github.com/shenshuaijie/SDN) (S4D backbone, AAAI 2025) and a Mamba backbone.
+
+**Note on prior work:** The core idea of mixing a continuous auxiliary path with a spiking path is similar to Smoothed Gradient Compensation (SGC) from [SpikingMamba](https://arxiv.org/abs/2510.04595) (Huang et al., TMLR 2026). The main difference is that SGC drops the continuous path at inference, while LeakyTernaryLIF keeps it with a learned per-layer weight. The S4D result (α→0.05, nearly fully continuous) suggests the spiking path may not be earning its place on that backbone. See [Limitations](#limitations) for honest assessment.
 
 ## Key Results
 
@@ -161,30 +163,28 @@ LeakyTernaryLIF's continuous SiLU term appears to violate the accumulate-only pa
 - **BrainScaleS-2**: Native hybrid spiking/continuous neuron support
 - **FPGA**: Included Verilog RTL implements basic LIF neuron and spike-driven linear layers for the KV260. The LeakyTernaryLIF blend would require additional DSP resources for the SiLU pathway.
 
-Note: The Verilog implements a basic binary spike pipeline, not the full LeakyTernaryLIF. Extending it to support the continuous bypass is future work.
+The Verilog now includes LeakyTernaryLIF with piecewise-linear SiLU approximation, top-K selector, and ternary spike-driven linear layer. Testbench passes on Icarus Verilog 11.0.
 
 ## Limitations
 
 - All experiments at 13M parameter scale on WikiText-2
 - Scaling to 100M+ untested
-- Energy projections (5-8x) use idealized operation costs
+- Energy projections (5-8x) use idealized operation costs — not validated on real hardware
 - Multi-seed variance is non-negligible (± 6.7-13.0 PPL)
 - α initialization affects final pattern
+- The S4D result (α→0.05) suggests the model learns to bypass spiking entirely on that backbone, which undermines the neuromorphic efficiency narrative
+- LeakyTernaryLIF is conceptually similar to SGC (SpikingMamba, Huang et al. 2026) — see note at top
 
-## Citation
+## Attribution
 
-If you use this work, please cite:
+This project adapts code from:
 
-```bibtex
-@software{leaky_ternary_lif,
-  title={LeakyTernaryLIF: Learned Mixed-Precision Spiking for Neuromorphic Language Models},
-  year={2026},
-  url={https://github.com/JeremiahM37/spike-ssm}
-}
-```
+- **[state-spaces/mamba](https://github.com/state-spaces/mamba)** — Apache 2.0, Copyright 2023 Albert Gu, Tri Dao. Block structure adapted for SpikeMamba.
+- **[state-spaces/s4](https://github.com/state-spaces/s4)** — Apache 2.0, Copyright 2022 Albert Gu. S4D diagonal kernel algorithm.
+- **[shenshuaijie/SDN](https://github.com/shenshuaijie/SDN)** — MIT, Copyright 2024 Shuaijie Shen. SpikingSSMs layer structure, spiking neurons, surrogate gradients.
 
-This work builds on [SpikingSSMs](https://github.com/shenshuaijie/SDN) (Shen et al., AAAI 2025) and [Mamba](https://github.com/state-spaces/mamba) (Gu & Dao, 2023).
+See [NOTICE](NOTICE) for details. All upstream licenses are permissive and permit derivative works with attribution.
 
 ## License
 
-MIT
+MIT — see [LICENSE](LICENSE).

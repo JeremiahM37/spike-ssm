@@ -1,0 +1,27 @@
+This project includes code adapted from the following open-source projects:
+
+1. state-spaces/s4 (Albert Gu et al.)
+   License: Apache License 2.0
+   Copyright 2022 Albert Gu
+   https://github.com/state-spaces/s4
+   The S4DKernel class in src/models/spiking_s4d.py is adapted from the
+   S4D diagonal kernel implementation.
+
+2. state-spaces/mamba (Albert Gu, Tri Dao)
+   License: Apache License 2.0
+   Copyright 2023 Albert Gu, Tri Dao
+   https://github.com/state-spaces/mamba
+   The SpikeMambaBlock class in src/models/spike_mamba.py adapts the Mamba
+   block structure (in_proj, x_proj, dt_proj, A_log, D, out_proj, selective
+   SSM scan).
+
+3. shenshuaijie/SDN — SpikingSSMs (Shen et al., AAAI 2025)
+   License: MIT
+   Copyright (c) 2024 Shuaijie Shen
+   https://github.com/shenshuaijie/SDN
+   The spiking neuron implementations (BPTT/SLTT LIF, piecewise quadratic
+   surrogate, learnable threshold scaling) and the SS4D layer structure in
+   src/models/spiking_s4d.py are adapted from their models/spike/ directory.
+
+All modifications are noted in per-file headers. This derivative work is
+distributed under the MIT License — see LICENSE.

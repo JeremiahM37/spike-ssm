@@ -1,19 +1,18 @@
 """SpikeMamba: Spiking adaptation of the Mamba (S4/SSM) architecture.
 
-Mathematical connection: LIF neuron dynamics are a first-order SSM:
-    LIF:  mem[t] = beta * mem[t-1] + x[t]; spike = H(mem - threshold)
-    SSM:  h[t]   = A * h[t-1]      + B * x[t]; y = C * h[t]
+Adapted from:
+  - state-spaces/mamba (Apache 2.0, Copyright 2023 Albert Gu, Tri Dao)
+    https://github.com/state-spaces/mamba
+    Block structure: in_proj, x_proj, dt_proj, A_log, D, out_proj,
+    selective SSM scan, 1D causal convolution
 
-The key difference is the binary spike output, which creates an
-information bottleneck but enables energy-efficient neuromorphic compute.
-
-This module provides a pure-PyTorch spiking Mamba that:
-1. Uses 1D causal convolution for local context (like original Mamba)
-2. Uses selective SSM with LIF-style state evolution
-3. Replaces SiLU activations with LIF neurons (spike-based gating)
-4. Supports ternary spikes {-1, 0, +1} via TI-LIF (SpikingMamba, TMLR 2026)
-
-Reference: Mamba (Gu & Dao, 2023), SpikingMamba (Yao et al., 2026)
+Modifications from upstream:
+  - Replaced SiLU activations with LIF spiking neurons
+  - Added ternary spike support {-1, 0, +1}
+  - Added LeakyTernaryLIF (learned alpha mixing)
+  - Added DynamicLeakyTernaryLIF (per-token gating)
+  - Added continuous gate option (hybrid-gate design)
+  - Sequential SSM scan (no custom CUDA kernel)
 """
 
 import torch
@@ -486,8 +485,8 @@ class SpikeMambaModel(nn.Module):
                 targets.reshape(-1),
             )
 
-        from .spikegpt_wrapper import SpikeGPTOutput
-        return SpikeGPTOutput(
+        from .outputs import ModelOutput
+        return ModelOutput(
             logits=logits,
             hidden_states=hidden_states,
             spike_rates=spike_rates,

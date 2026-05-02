@@ -1,7 +1,17 @@
 """SpikingS4D: spiking state-space model based on Shen et al., AAAI 2025.
 
-This is a clean re-implementation of SpikingSSMs that removes the S4 framework
-dependency. Source: https://github.com/shenshuaijie/SDN
+Adapted from:
+  - shenshuaijie/SDN (MIT, Copyright 2024 Shuaijie Shen)
+    https://github.com/shenshuaijie/SDN
+    S4DKernel, SS4D layer structure, BPTT/SLTT neurons, surrogate gradient
+  - state-spaces/s4 (Apache 2.0, Copyright 2022 Albert Gu)
+    https://github.com/state-spaces/s4
+    Original S4D diagonal kernel algorithm
+
+Modifications from upstream:
+  - Removed S4 framework dependency (standalone PyTorch)
+  - Added TernaryLIFNeuron, LeakyTernaryLIFNeuron, TopKLeakyTernaryLIFNeuron
+  - Added SpikingS4DLM language model wrapper with embedding/head
 
 Key components:
 1. S4DKernel — diagonal SSM convolution kernel (from S4D, Gu et al.)

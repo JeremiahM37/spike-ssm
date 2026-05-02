@@ -85,7 +85,8 @@ module tb_leaky_ternary_lif;
         // Test 3: Large positive input — should build up and fire +1
         i_current = 16'sd512; // 2.0 in Q8.8
         #10;
-        check(3, 2'b00, -16'sd512, 16'sd512); // might not fire yet (membrane building)
+        // Membrane = 0.9*94 + 512 = 596 > 384 threshold → fires +1
+        check(3, 2'b01, -16'sd512, 16'sd512);
 
         // Test 4: Another large input — should fire now
         i_current = 16'sd512;
