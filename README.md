@@ -74,11 +74,10 @@ src/
     data_loaders.py      # WikiText-2, PTB, enwik8 loaders
     metrics.py           # Evaluation metrics
   distillation/
-    kd_pipeline.py       # Knowledge distillation pipeline
     logit_matching.py    # KD loss functions
   hardware_sim/
-    synth_estimate.py    # FPGA synthesis estimation (KV260)
-    verilog/             # RTL implementation (2,494 lines)
+    synth_estimate.py    # FPGA resource estimation (KV260)
+    verilog/             # Basic LIF neuron + spike-driven linear RTL
 
 experiments/
     spiking_s4d_ablation.py  # Main ablation on SpikingSSMs backbone
@@ -91,7 +90,8 @@ experiments/
     results/                 # All experiment results (JSON)
     figures/                 # Generated figures
 
-tests/                       # Unit tests
+tests/
+    test_datasets.py         # Data loader tests
 ```
 
 ## Quick Start
@@ -153,11 +153,15 @@ python experiments/mamba_ablation.py
 | `leaky_ternary` | Learned α mixing (ours) | Best quality |
 | `topk_leaky_ternary` | + Top-K sparsity (ours) | Best for hardware |
 
-## Hardware
+## Hardware Feasibility
 
-- **FPGA**: Verilog RTL targeting AMD/Xilinx Kria KV260, pre-place-and-route estimate: 152 tok/s at 1.2W
-- **Loihi 2**: LeakyTernaryLIF maps to graded spike payloads with piecewise-linear SiLU in neuron microcode
+LeakyTernaryLIF's continuous SiLU term appears to violate the accumulate-only paradigm, but several deployment strategies exist:
+
+- **Loihi 2**: Graded spike payloads with piecewise-linear SiLU approximation in neuron microcode
 - **BrainScaleS-2**: Native hybrid spiking/continuous neuron support
+- **FPGA**: Included Verilog RTL implements basic LIF neuron and spike-driven linear layers for the KV260. The LeakyTernaryLIF blend would require additional DSP resources for the SiLU pathway.
+
+Note: The Verilog implements a basic binary spike pipeline, not the full LeakyTernaryLIF. Extending it to support the continuous bypass is future work.
 
 ## Limitations
 
@@ -175,7 +179,7 @@ If you use this work, please cite:
 @software{leaky_ternary_lif,
   title={LeakyTernaryLIF: Learned Mixed-Precision Spiking for Neuromorphic Language Models},
   year={2026},
-  url={https://github.com/YOUR_USERNAME/leaky-ternary-lif}
+  url={https://github.com/JeremiahM37/spike-ssm}
 }
 ```
 

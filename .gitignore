@@ -22,7 +22,6 @@ checkpoints/
 wandb/
 runs/
 data/
-models/
 external/
 archive/
 paper/
