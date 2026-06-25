@@ -161,9 +161,34 @@ LeakyTernaryLIF's continuous SiLU term appears to violate the accumulate-only pa
 
 - **Loihi 2**: Graded spike payloads with piecewise-linear SiLU approximation in neuron microcode
 - **BrainScaleS-2**: Native hybrid spiking/continuous neuron support
-- **FPGA**: Included Verilog RTL implements basic LIF neuron and spike-driven linear layers for the KV260. The LeakyTernaryLIF blend would require additional DSP resources for the SiLU pathway.
+- **FPGA**: Included Verilog RTL implements basic LIF neuron and spike-driven linear layers targeting the KV260. The LeakyTernaryLIF blend would require additional DSP resources for the SiLU pathway.
 
-The Verilog now includes LeakyTernaryLIF with piecewise-linear SiLU approximation, top-K selector, and ternary spike-driven linear layer. Testbench passes on Icarus Verilog 11.0.
+The Verilog also includes LeakyTernaryLIF with piecewise-linear SiLU approximation, a top-K selector, and a ternary spike-driven linear layer.
+
+### Hardware verification scope
+
+What "verified" means here, stated precisely:
+
+- **Functional RTL simulation only.** The Verilog testbenches are verified by
+  behavioral simulation under **Icarus Verilog 12.0** (`iverilog`/`vvp`). The
+  RTL has **not** been synthesized, placed-and-routed, timing-closed, or run on
+  real silicon or a physical KV260 board. Reproduce with
+  `cd src/hardware_sim/verilog && ./run_tests.sh` (or `make test`); a captured
+  PASS log lives in
+  [`src/hardware_sim/verilog/VERIFICATION.md`](src/hardware_sim/verilog/VERIFICATION.md).
+- **KV260 LUT/FF/DSP/BRAM numbers are analytical estimates.** Any reported
+  Kria KV260 (XCK26) utilization comes from the hand-written cost model in
+  [`src/hardware_sim/synth_estimate.py`](src/hardware_sim/synth_estimate.py),
+  **not** from Vivado synthesis or place-and-route. Treat them as
+  order-of-magnitude feasibility estimates, not P&R results.
+- **The hardware α is a frozen constant, not the learned α.** The RTL
+  `leaky_ternary_lif` bakes in a fixed compile-time `α = 0.85` (`ALPHA_NUM =
+  218/256`). This is *not* the learned per-layer α (nor the per-token dynamic
+  gate) the PyTorch model uses; on hardware the spike/continuous blend ratio is
+  a constant chosen at build time.
+- **Energy numbers are idealized cost-model estimates, not measured.** The
+  5-8x energy projections use idealized per-operation costs and have not been
+  measured on real hardware (see [Limitations](#limitations)).
 
 ## Limitations
 
